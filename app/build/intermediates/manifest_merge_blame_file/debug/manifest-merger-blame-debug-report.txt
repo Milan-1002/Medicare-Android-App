@@ -1,0 +1,138 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.medicare.app"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="24"
+9        android:targetSdkVersion="34" />
+10
+11    <uses-permission android:name="android.permission.SET_ALARM" />
+11-->/Users/milansunar/Documents/claude code/MediCare/app/src/main/AndroidManifest.xml:5:5-68
+11-->/Users/milansunar/Documents/claude code/MediCare/app/src/main/AndroidManifest.xml:5:22-65
+12    <uses-permission android:name="android.permission.WAKE_LOCK" />
+12-->/Users/milansunar/Documents/claude code/MediCare/app/src/main/AndroidManifest.xml:6:5-68
+12-->/Users/milansunar/Documents/claude code/MediCare/app/src/main/AndroidManifest.xml:6:22-65
+13    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+13-->/Users/milansunar/Documents/claude code/MediCare/app/src/main/AndroidManifest.xml:7:5-81
+13-->/Users/milansunar/Documents/claude code/MediCare/app/src/main/AndroidManifest.xml:7:22-78
+14    <uses-permission android:name="android.permission.VIBRATE" />
+14-->/Users/milansunar/Documents/claude code/MediCare/app/src/main/AndroidManifest.xml:8:5-66
+14-->/Users/milansunar/Documents/claude code/MediCare/app/src/main/AndroidManifest.xml:8:22-63
+15    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+15-->/Users/milansunar/Documents/claude code/MediCare/app/src/main/AndroidManifest.xml:9:5-77
+15-->/Users/milansunar/Documents/claude code/MediCare/app/src/main/AndroidManifest.xml:9:22-74
+16
+17    <permission
+17-->[androidx.core:core:1.9.0] /Users/milansunar/.gradle/caches/9.0-milestone-1/transforms/4428070d35b5908e2590b1f7977b0c86/transformed/core-1.9.0/AndroidManifest.xml:22:5-24:47
+18        android:name="com.medicare.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+18-->[androidx.core:core:1.9.0] /Users/milansunar/.gradle/caches/9.0-milestone-1/transforms/4428070d35b5908e2590b1f7977b0c86/transformed/core-1.9.0/AndroidManifest.xml:23:9-81
+19        android:protectionLevel="signature" />
+19-->[androidx.core:core:1.9.0] /Users/milansunar/.gradle/caches/9.0-milestone-1/transforms/4428070d35b5908e2590b1f7977b0c86/transformed/core-1.9.0/AndroidManifest.xml:24:9-44
+20
+21    <uses-permission android:name="com.medicare.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+21-->[androidx.core:core:1.9.0] /Users/milansunar/.gradle/caches/9.0-milestone-1/transforms/4428070d35b5908e2590b1f7977b0c86/transformed/core-1.9.0/AndroidManifest.xml:26:5-97
+21-->[androidx.core:core:1.9.0] /Users/milansunar/.gradle/caches/9.0-milestone-1/transforms/4428070d35b5908e2590b1f7977b0c86/transformed/core-1.9.0/AndroidManifest.xml:26:22-94
+22
+23    <application
+23-->/Users/milansunar/Documents/claude code/MediCare/app/src/main/AndroidManifest.xml:11:5-52:19
+24        android:allowBackup="true"
+24-->/Users/milansunar/Documents/claude code/MediCare/app/src/main/AndroidManifest.xml:12:9-35
+25        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+25-->[androidx.core:core:1.9.0] /Users/milansunar/.gradle/caches/9.0-milestone-1/transforms/4428070d35b5908e2590b1f7977b0c86/transformed/core-1.9.0/AndroidManifest.xml:28:18-86
+26        android:debuggable="true"
+27        android:extractNativeLibs="false"
+28        android:icon="@android:drawable/ic_menu_agenda"
+28-->/Users/milansunar/Documents/claude code/MediCare/app/src/main/AndroidManifest.xml:13:9-56
+29        android:label="@string/app_name"
+29-->/Users/milansunar/Documents/claude code/MediCare/app/src/main/AndroidManifest.xml:14:9-41
+30        android:supportsRtl="true"
+30-->/Users/milansunar/Documents/claude code/MediCare/app/src/main/AndroidManifest.xml:15:9-35
+31        android:testOnly="true"
+32        android:theme="@style/Theme.MediCare" >
+32-->/Users/milansunar/Documents/claude code/MediCare/app/src/main/AndroidManifest.xml:16:9-46
+33        <activity
+33-->/Users/milansunar/Documents/claude code/MediCare/app/src/main/AndroidManifest.xml:18:9-26:20
+34            android:name="com.medicare.app.MainActivity"
+34-->/Users/milansunar/Documents/claude code/MediCare/app/src/main/AndroidManifest.xml:19:13-41
+35            android:exported="true"
+35-->/Users/milansunar/Documents/claude code/MediCare/app/src/main/AndroidManifest.xml:20:13-36
+36            android:theme="@style/Theme.MediCare" >
+36-->/Users/milansunar/Documents/claude code/MediCare/app/src/main/AndroidManifest.xml:21:13-50
+37            <intent-filter>
+37-->/Users/milansunar/Documents/claude code/MediCare/app/src/main/AndroidManifest.xml:22:13-25:29
+38                <action android:name="android.intent.action.MAIN" />
+38-->/Users/milansunar/Documents/claude code/MediCare/app/src/main/AndroidManifest.xml:23:17-69
+38-->/Users/milansunar/Documents/claude code/MediCare/app/src/main/AndroidManifest.xml:23:25-66
+39
+40                <category android:name="android.intent.category.LAUNCHER" />
+40-->/Users/milansunar/Documents/claude code/MediCare/app/src/main/AndroidManifest.xml:24:17-77
+40-->/Users/milansunar/Documents/claude code/MediCare/app/src/main/AndroidManifest.xml:24:27-74
+41            </intent-filter>
+42        </activity>
+43        <activity
+43-->/Users/milansunar/Documents/claude code/MediCare/app/src/main/AndroidManifest.xml:28:9-31:58
+44            android:name="com.medicare.app.DashboardActivity"
+44-->/Users/milansunar/Documents/claude code/MediCare/app/src/main/AndroidManifest.xml:29:13-46
+45            android:exported="false"
+45-->/Users/milansunar/Documents/claude code/MediCare/app/src/main/AndroidManifest.xml:30:13-37
+46            android:parentActivityName="com.medicare.app.MainActivity" />
+46-->/Users/milansunar/Documents/claude code/MediCare/app/src/main/AndroidManifest.xml:31:13-55
+47        <activity
+47-->/Users/milansunar/Documents/claude code/MediCare/app/src/main/AndroidManifest.xml:33:9-36:63
+48            android:name="com.medicare.app.AddMedicineActivity"
+48-->/Users/milansunar/Documents/claude code/MediCare/app/src/main/AndroidManifest.xml:34:13-48
+49            android:exported="false"
+49-->/Users/milansunar/Documents/claude code/MediCare/app/src/main/AndroidManifest.xml:35:13-37
+50            android:parentActivityName="com.medicare.app.DashboardActivity" />
+50-->/Users/milansunar/Documents/claude code/MediCare/app/src/main/AndroidManifest.xml:36:13-60
+51
+52        <receiver
+52-->/Users/milansunar/Documents/claude code/MediCare/app/src/main/AndroidManifest.xml:38:9-41:40
+53            android:name="com.medicare.app.receivers.MedicineReminderReceiver"
+53-->/Users/milansunar/Documents/claude code/MediCare/app/src/main/AndroidManifest.xml:39:13-63
+54            android:enabled="true"
+54-->/Users/milansunar/Documents/claude code/MediCare/app/src/main/AndroidManifest.xml:40:13-35
+55            android:exported="false" />
+55-->/Users/milansunar/Documents/claude code/MediCare/app/src/main/AndroidManifest.xml:41:13-37
+56        <receiver
+56-->/Users/milansunar/Documents/claude code/MediCare/app/src/main/AndroidManifest.xml:43:9-50:20
+57            android:name="com.medicare.app.receivers.BootReceiver"
+57-->/Users/milansunar/Documents/claude code/MediCare/app/src/main/AndroidManifest.xml:44:13-51
+58            android:enabled="true"
+58-->/Users/milansunar/Documents/claude code/MediCare/app/src/main/AndroidManifest.xml:45:13-35
+59            android:exported="false" >
+59-->/Users/milansunar/Documents/claude code/MediCare/app/src/main/AndroidManifest.xml:46:13-37
+60            <intent-filter>
+60-->/Users/milansunar/Documents/claude code/MediCare/app/src/main/AndroidManifest.xml:47:13-49:29
+61                <action android:name="android.intent.action.BOOT_COMPLETED" />
+61-->/Users/milansunar/Documents/claude code/MediCare/app/src/main/AndroidManifest.xml:48:17-79
+61-->/Users/milansunar/Documents/claude code/MediCare/app/src/main/AndroidManifest.xml:48:25-76
+62            </intent-filter>
+63        </receiver>
+64
+65        <provider
+65-->[androidx.emoji2:emoji2:1.2.0] /Users/milansunar/.gradle/caches/9.0-milestone-1/transforms/5593a3512b14e7f0f3d53e2cd26febdd/transformed/emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
+66            android:name="androidx.startup.InitializationProvider"
+66-->[androidx.emoji2:emoji2:1.2.0] /Users/milansunar/.gradle/caches/9.0-milestone-1/transforms/5593a3512b14e7f0f3d53e2cd26febdd/transformed/emoji2-1.2.0/AndroidManifest.xml:25:13-67
+67            android:authorities="com.medicare.app.androidx-startup"
+67-->[androidx.emoji2:emoji2:1.2.0] /Users/milansunar/.gradle/caches/9.0-milestone-1/transforms/5593a3512b14e7f0f3d53e2cd26febdd/transformed/emoji2-1.2.0/AndroidManifest.xml:26:13-68
+68            android:exported="false" >
+68-->[androidx.emoji2:emoji2:1.2.0] /Users/milansunar/.gradle/caches/9.0-milestone-1/transforms/5593a3512b14e7f0f3d53e2cd26febdd/transformed/emoji2-1.2.0/AndroidManifest.xml:27:13-37
+69            <meta-data
+69-->[androidx.emoji2:emoji2:1.2.0] /Users/milansunar/.gradle/caches/9.0-milestone-1/transforms/5593a3512b14e7f0f3d53e2cd26febdd/transformed/emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
+70                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+70-->[androidx.emoji2:emoji2:1.2.0] /Users/milansunar/.gradle/caches/9.0-milestone-1/transforms/5593a3512b14e7f0f3d53e2cd26febdd/transformed/emoji2-1.2.0/AndroidManifest.xml:30:17-75
+71                android:value="androidx.startup" />
+71-->[androidx.emoji2:emoji2:1.2.0] /Users/milansunar/.gradle/caches/9.0-milestone-1/transforms/5593a3512b14e7f0f3d53e2cd26febdd/transformed/emoji2-1.2.0/AndroidManifest.xml:31:17-49
+72            <meta-data
+72-->[androidx.lifecycle:lifecycle-process:2.4.1] /Users/milansunar/.gradle/caches/9.0-milestone-1/transforms/7c73e2472a04232608835c04fb528725/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:31:13-33:52
+73                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+73-->[androidx.lifecycle:lifecycle-process:2.4.1] /Users/milansunar/.gradle/caches/9.0-milestone-1/transforms/7c73e2472a04232608835c04fb528725/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:32:17-78
+74                android:value="androidx.startup" />
+74-->[androidx.lifecycle:lifecycle-process:2.4.1] /Users/milansunar/.gradle/caches/9.0-milestone-1/transforms/7c73e2472a04232608835c04fb528725/transformed/lifecycle-process-2.4.1/AndroidManifest.xml:33:17-49
+75        </provider>
+76    </application>
+77
+78</manifest>

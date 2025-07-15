@@ -1,0 +1,90 @@
+<resources>
+    <string name="app_name">MediCare</string>
+    
+    <!-- Activity Titles -->
+    <string name="dashboard">Dashboard</string>
+    <string name="add_medicine">Add Medicine</string>
+    
+    <!-- Dashboard -->
+    <string name="good_morning">Good Morning</string>
+    <string name="good_afternoon">Good Afternoon</string>
+    <string name="good_evening">Good Evening</string>
+    <string name="overview_subtitle">Here\'s your medication overview</string>
+    <string name="active_medicines">Active Medicines</string>
+    <string name="todays_medicines">Today\'s Medicines</string>
+    <string name="reminders_today">Reminders Today</string>
+    <string name="adherence_rate">Adherence Rate</string>
+    <string name="upcoming_reminders">Upcoming Reminders</string>
+    <string name="your_medicines">Your Medicines</string>
+    <string name="no_medicines">No medicines added yet.\nTap the + button to add your first medicine.</string>
+    
+    <!-- Add Medicine -->
+    <string name="add_new_medicine">Add New Medicine</string>
+    <string name="medicine_name">Medicine Name</string>
+    <string name="dosage">Dosage (e.g., 10mg, 1 tablet)</string>
+    <string name="frequency">Frequency</string>
+    <string name="medicine_type">Medicine Type</string>
+    <string name="reminder_times">Reminder Times</string>
+    <string name="add_time">Add Time</string>
+    <string name="start_date">Start Date</string>
+    <string name="end_date">End Date (Optional)</string>
+    <string name="notes">Notes (Optional)</string>
+    <string name="save_medicine">Save Medicine</string>
+    <string name="cancel">Cancel</string>
+    <string name="select_date">Select Date</string>
+    <string name="no_date_selected">No date selected</string>
+    <string name="no_end_date">No end date</string>
+    <string name="tap_to_add_time">Tap to add time</string>
+    <string name="times_set">%d times set</string>
+    
+    <!-- Frequencies -->
+    <string name="once_daily">Once daily</string>
+    <string name="twice_daily">Twice daily</string>
+    <string name="three_times_daily">Three times daily</string>
+    <string name="four_times_daily">Four times daily</string>
+    <string name="every_6_hours">Every 6 hours</string>
+    <string name="every_8_hours">Every 8 hours</string>
+    <string name="every_12_hours">Every 12 hours</string>
+    <string name="as_needed">As needed</string>
+    
+    <!-- Medicine Types -->
+    <string name="tablet">Tablet</string>
+    <string name="capsule">Capsule</string>
+    <string name="liquid">Liquid</string>
+    <string name="injection">Injection</string>
+    <string name="topical">Topical</string>
+    <string name="inhaler">Inhaler</string>
+    <string name="drops">Drops</string>
+    <string name="other">Other</string>
+    
+    
+    <!-- Medicine Actions -->
+    <string name="delete_medicine">Delete Medicine</string>
+    <string name="delete_confirmation">Are you sure you want to delete %s?</string>
+    <string name="delete">Delete</string>
+    <string name="medicine_info">Medicine Information</string>
+    <string name="ok">OK</string>
+    
+    <!-- Notifications -->
+    <string name="medicine_reminder">Medicine Reminder</string>
+    <string name="time_to_take">Time to take %s</string>
+    
+    <!-- Messages -->
+    <string name="medicine_added_successfully">Medicine added successfully</string>
+    <string name="error_adding_medicine">Error adding medicine</string>
+    <string name="medicine_deleted">Medicine deleted</string>
+    <string name="error_deleting_medicine">Error deleting medicine</string>
+    <string name="error_loading_medicines">Error loading medicines</string>
+    <string name="error_updating_stats">Error updating stats</string>
+    <string name="time_already_added">Time already added</string>
+    <string name="please_add_reminder_time">Please add at least one reminder time</string>
+    <string name="please_select_start_date">Please select a start date</string>
+    <string name="medicine_name_required">Medicine name is required</string>
+    <string name="dosage_required">Dosage is required</string>
+    
+    <!-- Dates -->
+    <string name="started">Started: %s</string>
+    <string name="ends">Ends: %s</string>
+    <string name="next_reminder">Next reminder: %s</string>
+    
+</resources>

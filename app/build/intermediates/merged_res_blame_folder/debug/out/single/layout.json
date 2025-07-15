@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "/Users/milansunar/.gradle/daemon/9.0-milestone-1/com.medicare.app-mergeDebugResources-28:/layout/item_medicine.xml",
+        "source": "/Users/milansunar/.gradle/daemon/9.0-milestone-1/com.medicare.app-main-31:/layout/item_medicine.xml"
+    },
+    {
+        "merged": "/Users/milansunar/.gradle/daemon/9.0-milestone-1/com.medicare.app-mergeDebugResources-28:/layout/activity_add_medicine.xml",
+        "source": "/Users/milansunar/.gradle/daemon/9.0-milestone-1/com.medicare.app-main-31:/layout/activity_add_medicine.xml"
+    },
+    {
+        "merged": "/Users/milansunar/.gradle/daemon/9.0-milestone-1/com.medicare.app-mergeDebugResources-28:/layout/item_time.xml",
+        "source": "/Users/milansunar/.gradle/daemon/9.0-milestone-1/com.medicare.app-main-31:/layout/item_time.xml"
+    },
+    {
+        "merged": "/Users/milansunar/.gradle/daemon/9.0-milestone-1/com.medicare.app-mergeDebugResources-28:/layout/activity_dashboard.xml",
+        "source": "/Users/milansunar/.gradle/daemon/9.0-milestone-1/com.medicare.app-main-31:/layout/activity_dashboard.xml"
+    },
+    {
+        "merged": "com.medicare.app-mergeDebugResources-28:/layout/activity_add_medicine.xml",
+        "source": "com.medicare.app-main-31:/layout/activity_add_medicine.xml"
+    },
+    {
+        "merged": "/Users/milansunar/.gradle/daemon/9.0-milestone-1/com.medicare.app-mergeDebugResources-28:/layout/activity_main.xml",
+        "source": "/Users/milansunar/.gradle/daemon/9.0-milestone-1/com.medicare.app-main-31:/layout/activity_main.xml"
+    }
+]
