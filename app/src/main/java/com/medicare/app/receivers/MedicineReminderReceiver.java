@@ -7,6 +7,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
+import android.util.Log;
 
 import androidx.core.app.NotificationCompat;
 
@@ -20,12 +21,18 @@ public class MedicineReminderReceiver extends BroadcastReceiver {
     
     @Override
     public void onReceive(Context context, Intent intent) {
+        Log.d("MedicineReminder", "Reminder received!");
+        
         String medicineName = intent.getStringExtra("medicine_name");
         String dosage = intent.getStringExtra("dosage");
         String time = intent.getStringExtra("time");
         
+        Log.d("MedicineReminder", "Medicine: " + medicineName + ", Dosage: " + dosage + ", Time: " + time);
+        
         if (medicineName != null) {
             showNotification(context, medicineName, dosage, time);
+        } else {
+            Log.e("MedicineReminder", "Medicine name is null - cannot show notification");
         }
     }
     
@@ -58,6 +65,8 @@ public class MedicineReminderReceiver extends BroadcastReceiver {
         
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.notify(NOTIFICATION_ID, builder.build());
+        
+        Log.d("MedicineReminder", "Notification shown for: " + medicineName);
     }
     
     private void createNotificationChannel(Context context) {

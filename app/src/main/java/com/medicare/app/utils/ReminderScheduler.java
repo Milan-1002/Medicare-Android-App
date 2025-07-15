@@ -20,10 +20,13 @@ public class ReminderScheduler {
     
     public static void scheduleReminder(Context context, Medicine medicine) {
         if (medicine.getTimes() == null || medicine.getTimes().isEmpty()) {
+            Log.w(TAG, "No times set for medicine: " + medicine.getName());
             return;
         }
         
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        
+        Log.d(TAG, "Scheduling reminders for medicine: " + medicine.getName() + " with " + medicine.getTimes().size() + " times");
         
         for (int i = 0; i < medicine.getTimes().size(); i++) {
             String time = medicine.getTimes().get(i);
@@ -63,6 +66,9 @@ public class ReminderScheduler {
             );
             
             // Schedule the alarm
+            Log.d(TAG, "Attempting to schedule alarm for " + medicine.getName() + " at " + time + 
+                  " (timestamp: " + calendar.getTimeInMillis() + ")");
+            
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 alarmManager.setExactAndAllowWhileIdle(
                     AlarmManager.RTC_WAKEUP,
@@ -77,7 +83,8 @@ public class ReminderScheduler {
                 );
             }
             
-            Log.d(TAG, "Scheduled reminder for " + medicine.getName() + " at " + time);
+            Log.d(TAG, "Successfully scheduled reminder for " + medicine.getName() + " at " + time + 
+                  " with request code: " + requestCode);
             
         } catch (Exception e) {
             Log.e(TAG, "Error scheduling reminder", e);

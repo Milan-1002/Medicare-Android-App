@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="background_light">#f8fafc</color>
+    <color name="badge_bg">#e2e8f0</color>
+    <color name="black">#FF000000</color>
+    <color name="error_red">#ef4444</color>
+    <color name="medical_blue">#3b82f6</color>
+    <color name="medical_blue_light">#dbeafe</color>
+    <color name="medical_cyan">#06b6d4</color>
+    <color name="medical_purple">#9333ea</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="success_green">#10b981</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="text_primary">#1e293b</color>
+    <color name="text_secondary">#64748b</color>
+    <color name="warning_light">#fef3c7</color>
+    <color name="warning_orange">#f59e0b</color>
+    <color name="white">#ffffff</color>
+    <string name="active_medicines">Active Medicines</string>
+    <string name="add_medicine">Add Medicine</string>
+    <string name="add_new_medicine">Add New Medicine</string>
+    <string name="add_time">Add Time</string>
+    <string name="adherence_rate">Adherence Rate</string>
+    <string name="app_name">MediCare</string>
+    <string name="as_needed">As needed</string>
+    <string name="cancel">Cancel</string>
+    <string name="capsule">Capsule</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="delete">Delete</string>
+    <string name="delete_confirmation">Are you sure you want to delete %s?</string>
+    <string name="delete_medicine">Delete Medicine</string>
+    <string name="dosage">Dosage (e.g., 10mg, 1 tablet)</string>
+    <string name="dosage_required">Dosage is required</string>
+    <string name="drops">Drops</string>
+    <string name="end_date">End Date (Optional)</string>
+    <string name="ends">Ends: %s</string>
+    <string name="error_adding_medicine">Error adding medicine</string>
+    <string name="error_deleting_medicine">Error deleting medicine</string>
+    <string name="error_loading_medicines">Error loading medicines</string>
+    <string name="error_updating_stats">Error updating stats</string>
+    <string name="every_12_hours">Every 12 hours</string>
+    <string name="every_6_hours">Every 6 hours</string>
+    <string name="every_8_hours">Every 8 hours</string>
+    <string name="four_times_daily">Four times daily</string>
+    <string name="frequency">Frequency</string>
+    <string name="good_afternoon">Good Afternoon</string>
+    <string name="good_evening">Good Evening</string>
+    <string name="good_morning">Good Morning</string>
+    <string name="inhaler">Inhaler</string>
+    <string name="injection">Injection</string>
+    <string name="liquid">Liquid</string>
+    <string name="medicine_added_successfully">Medicine added successfully</string>
+    <string name="medicine_deleted">Medicine deleted</string>
+    <string name="medicine_info">Medicine Information</string>
+    <string name="medicine_name">Medicine Name</string>
+    <string name="medicine_name_required">Medicine name is required</string>
+    <string name="medicine_reminder">Medicine Reminder</string>
+    <string name="medicine_type">Medicine Type</string>
+    <string name="next_reminder">Next reminder: %s</string>
+    <string name="no_date_selected">No date selected</string>
+    <string name="no_end_date">No end date</string>
+    <string name="no_medicines">No medicines added yet.\nTap the + button to add your first medicine.</string>
+    <string name="notes">Notes (Optional)</string>
+    <string name="ok">OK</string>
+    <string name="once_daily">Once daily</string>
+    <string name="other">Other</string>
+    <string name="overview_subtitle">Here\'s your medication overview</string>
+    <string name="please_add_reminder_time">Please add at least one reminder time</string>
+    <string name="please_select_start_date">Please select a start date</string>
+    <string name="reminder_times">Reminder Times</string>
+    <string name="reminders_today">Reminders Today</string>
+    <string name="save_medicine">Save Medicine</string>
+    <string name="select_date">Select Date</string>
+    <string name="start_date">Start Date</string>
+    <string name="started">Started: %s</string>
+    <string name="tablet">Tablet</string>
+    <string name="tap_to_add_time">Tap to add time</string>
+    <string name="three_times_daily">Three times daily</string>
+    <string name="time_already_added">Time already added</string>
+    <string name="time_to_take">Time to take %s</string>
+    <string name="times_set">%d times set</string>
+    <string name="todays_medicines">Today\'s Medicines</string>
+    <string name="topical">Topical</string>
+    <string name="twice_daily">Twice daily</string>
+    <string name="upcoming_reminders">Upcoming Reminders</string>
+    <string name="your_medicines">Your Medicines</string>
+    <style name="Theme.MediCare" parent="Theme.AppCompat.DayNight.NoActionBar">
+        
+        <item name="colorPrimary">@color/medical_blue</item>
+        <item name="colorPrimaryDark">@color/medical_blue</item>
+        <item name="colorAccent">@color/medical_cyan</item>
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
+        <item name="android:windowBackground">@color/background_light</item>
+    </style>
+    <style name="Theme.MediCare.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+    <style name="Theme.MediCare.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.MediCare.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+</resources>

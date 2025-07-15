@@ -1,74 +1,70 @@
 [
     {
-        "merged": "/Users/milansunar/.gradle/daemon/9.0-milestone-1/com.medicare.app-merged_res-29:/drawable_spinner_background.xml.flat",
-        "source": "/Users/milansunar/.gradle/daemon/9.0-milestone-1/com.medicare.app-main-31:/drawable/spinner_background.xml"
+        "merged": "com.medicare.app-merged_res-29:/drawable_badge_background.xml.flat",
+        "source": "com.medicare.app-main-31:/drawable/badge_background.xml"
     },
     {
-        "merged": "/Users/milansunar/.gradle/daemon/9.0-milestone-1/com.medicare.app-merged_res-29:/drawable_ic_notification.xml.flat",
-        "source": "/Users/milansunar/.gradle/daemon/9.0-milestone-1/com.medicare.app-main-31:/drawable/ic_notification.xml"
+        "merged": "com.medicare.app-merged_res-29:/drawable_ic_arrow_right.xml.flat",
+        "source": "com.medicare.app-main-31:/drawable/ic_arrow_right.xml"
     },
     {
-        "merged": "/Users/milansunar/.gradle/daemon/9.0-milestone-1/com.medicare.app-merged_res-29:/layout_activity_dashboard.xml.flat",
-        "source": "/Users/milansunar/.gradle/daemon/9.0-milestone-1/com.medicare.app-main-31:/layout/activity_dashboard.xml"
+        "merged": "com.medicare.app-merged_res-29:/drawable_edit_text_background.xml.flat",
+        "source": "com.medicare.app-main-31:/drawable/edit_text_background.xml"
+    },
+    {
+        "merged": "com.medicare.app-merged_res-29:/drawable_spinner_background.xml.flat",
+        "source": "com.medicare.app-main-31:/drawable/spinner_background.xml"
+    },
+    {
+        "merged": "com.medicare.app-merged_res-29:/drawable_ic_add_medicine.xml.flat",
+        "source": "com.medicare.app-main-31:/drawable/ic_add_medicine.xml"
+    },
+    {
+        "merged": "com.medicare.app-merged_res-29:/layout_activity_main.xml.flat",
+        "source": "com.medicare.app-main-31:/layout/activity_main.xml"
     },
     {
         "merged": "com.medicare.app-merged_res-29:/layout_activity_add_medicine.xml.flat",
         "source": "com.medicare.app-main-31:/layout/activity_add_medicine.xml"
     },
     {
-        "merged": "/Users/milansunar/.gradle/daemon/9.0-milestone-1/com.medicare.app-merged_res-29:/layout_item_medicine.xml.flat",
-        "source": "/Users/milansunar/.gradle/daemon/9.0-milestone-1/com.medicare.app-main-31:/layout/item_medicine.xml"
+        "merged": "com.medicare.app-merged_res-29:/drawable_circle_button_background.xml.flat",
+        "source": "com.medicare.app-main-31:/drawable/circle_button_background.xml"
     },
     {
-        "merged": "/Users/milansunar/.gradle/daemon/9.0-milestone-1/com.medicare.app-merged_res-29:/drawable_badge_background.xml.flat",
-        "source": "/Users/milansunar/.gradle/daemon/9.0-milestone-1/com.medicare.app-main-31:/drawable/badge_background.xml"
+        "merged": "com.medicare.app-merged_res-29:/layout_item_time.xml.flat",
+        "source": "com.medicare.app-main-31:/layout/item_time.xml"
     },
     {
-        "merged": "/Users/milansunar/.gradle/daemon/9.0-milestone-1/com.medicare.app-merged_res-29:/drawable_times_background.xml.flat",
-        "source": "/Users/milansunar/.gradle/daemon/9.0-milestone-1/com.medicare.app-main-31:/drawable/times_background.xml"
+        "merged": "com.medicare.app-merged_res-29:/drawable_ic_medical_cross.xml.flat",
+        "source": "com.medicare.app-main-31:/drawable/ic_medical_cross.xml"
     },
     {
-        "merged": "/Users/milansunar/.gradle/daemon/9.0-milestone-1/com.medicare.app-merged_res-29:/layout_activity_add_medicine.xml.flat",
-        "source": "/Users/milansunar/.gradle/daemon/9.0-milestone-1/com.medicare.app-main-31:/layout/activity_add_medicine.xml"
+        "merged": "com.medicare.app-merged_res-29:/layout_activity_dashboard.xml.flat",
+        "source": "com.medicare.app-main-31:/layout/activity_dashboard.xml"
     },
     {
-        "merged": "/Users/milansunar/.gradle/daemon/9.0-milestone-1/com.medicare.app-merged_res-29:/drawable_ic_dashboard.xml.flat",
-        "source": "/Users/milansunar/.gradle/daemon/9.0-milestone-1/com.medicare.app-main-31:/drawable/ic_dashboard.xml"
+        "merged": "com.medicare.app-merged_res-29:/drawable_times_background.xml.flat",
+        "source": "com.medicare.app-main-31:/drawable/times_background.xml"
     },
     {
-        "merged": "/Users/milansunar/.gradle/daemon/9.0-milestone-1/com.medicare.app-merged_res-29:/drawable_edit_text_background.xml.flat",
-        "source": "/Users/milansunar/.gradle/daemon/9.0-milestone-1/com.medicare.app-main-31:/drawable/edit_text_background.xml"
+        "merged": "com.medicare.app-merged_res-29:/drawable_ic_dashboard.xml.flat",
+        "source": "com.medicare.app-main-31:/drawable/ic_dashboard.xml"
     },
     {
-        "merged": "/Users/milansunar/.gradle/daemon/9.0-milestone-1/com.medicare.app-merged_res-29:/drawable_ic_add.xml.flat",
-        "source": "/Users/milansunar/.gradle/daemon/9.0-milestone-1/com.medicare.app-main-31:/drawable/ic_add.xml"
+        "merged": "com.medicare.app-merged_res-29:/drawable_ic_add.xml.flat",
+        "source": "com.medicare.app-main-31:/drawable/ic_add.xml"
     },
     {
-        "merged": "/Users/milansunar/.gradle/daemon/9.0-milestone-1/com.medicare.app-merged_res-29:/drawable_ic_arrow_right.xml.flat",
-        "source": "/Users/milansunar/.gradle/daemon/9.0-milestone-1/com.medicare.app-main-31:/drawable/ic_arrow_right.xml"
+        "merged": "com.medicare.app-merged_res-29:/drawable_ic_close.xml.flat",
+        "source": "com.medicare.app-main-31:/drawable/ic_close.xml"
     },
     {
-        "merged": "/Users/milansunar/.gradle/daemon/9.0-milestone-1/com.medicare.app-merged_res-29:/layout_item_time.xml.flat",
-        "source": "/Users/milansunar/.gradle/daemon/9.0-milestone-1/com.medicare.app-main-31:/layout/item_time.xml"
+        "merged": "com.medicare.app-merged_res-29:/drawable_ic_notification.xml.flat",
+        "source": "com.medicare.app-main-31:/drawable/ic_notification.xml"
     },
     {
-        "merged": "/Users/milansunar/.gradle/daemon/9.0-milestone-1/com.medicare.app-merged_res-29:/drawable_ic_medical_cross.xml.flat",
-        "source": "/Users/milansunar/.gradle/daemon/9.0-milestone-1/com.medicare.app-main-31:/drawable/ic_medical_cross.xml"
-    },
-    {
-        "merged": "/Users/milansunar/.gradle/daemon/9.0-milestone-1/com.medicare.app-merged_res-29:/drawable_ic_close.xml.flat",
-        "source": "/Users/milansunar/.gradle/daemon/9.0-milestone-1/com.medicare.app-main-31:/drawable/ic_close.xml"
-    },
-    {
-        "merged": "/Users/milansunar/.gradle/daemon/9.0-milestone-1/com.medicare.app-merged_res-29:/layout_activity_main.xml.flat",
-        "source": "/Users/milansunar/.gradle/daemon/9.0-milestone-1/com.medicare.app-main-31:/layout/activity_main.xml"
-    },
-    {
-        "merged": "/Users/milansunar/.gradle/daemon/9.0-milestone-1/com.medicare.app-merged_res-29:/drawable_ic_add_medicine.xml.flat",
-        "source": "/Users/milansunar/.gradle/daemon/9.0-milestone-1/com.medicare.app-main-31:/drawable/ic_add_medicine.xml"
-    },
-    {
-        "merged": "/Users/milansunar/.gradle/daemon/9.0-milestone-1/com.medicare.app-merged_res-29:/drawable_circle_button_background.xml.flat",
-        "source": "/Users/milansunar/.gradle/daemon/9.0-milestone-1/com.medicare.app-main-31:/drawable/circle_button_background.xml"
+        "merged": "com.medicare.app-merged_res-29:/layout_item_medicine.xml.flat",
+        "source": "com.medicare.app-main-31:/layout/item_medicine.xml"
     }
 ]

@@ -1,4 +1,4 @@
-#Sun Jul 06 21:24:37 CDT 2025
+#Mon Jul 14 21:37:41 CDT 2025
 base.0=/Users/milansunar/Documents/claude code/MediCare/app/build/intermediates/dex/debug/mergeExtDexDebug/classes.dex
 base.1=/Users/milansunar/Documents/claude code/MediCare/app/build/intermediates/dex/debug/mergeProjectDexDebug/0/classes.dex
 base.2=/Users/milansunar/Documents/claude code/MediCare/app/build/intermediates/dex/debug/mergeProjectDexDebug/1/classes.dex
