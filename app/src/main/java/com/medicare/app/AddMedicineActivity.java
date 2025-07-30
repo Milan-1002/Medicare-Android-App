@@ -2,8 +2,12 @@ package com.medicare.app;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView; // Keep this import
 import android.widget.ArrayAdapter;
@@ -14,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -63,6 +68,14 @@ public class AddMedicineActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_medicine);
 
         try {
+            // Setup Toolbar
+            Toolbar toolbar = findViewById(R.id.toolbar);
+            setSupportActionBar(toolbar);
+            if (getSupportActionBar() != null) {
+                getSupportActionBar().setTitle("Add Medicine");
+                getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            }
+            
             initializeFrequencyMappings();
             initializeBasicViews();
             initializeDatabase();
@@ -380,7 +393,16 @@ public class AddMedicineActivity extends AppCompatActivity {
         medicine.setEndDate(endDate);
         medicine.setActive(true);
 
-        long id = databaseHelper.insertMedicine(medicine);
+        // Get current user ID from SharedPreferences
+        SharedPreferences sharedPreferences = getSharedPreferences("MediCarePrefs", MODE_PRIVATE);
+        long currentUserId = sharedPreferences.getLong("user_id", -1);
+        
+        if (currentUserId == -1) {
+            Toast.makeText(this, "Error: User not logged in", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        
+        long id = databaseHelper.insertMedicine(medicine, currentUserId);
         if (id > 0) {
             medicine.setId(id);
             ReminderScheduler.scheduleReminder(this, medicine); // Assumes ReminderScheduler uses "HH:mm"
@@ -407,6 +429,38 @@ public class AddMedicineActivity extends AppCompatActivity {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.add_medicine_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.action_logout) {
+            logout();
+            return true;
+        } else if (item.getItemId() == android.R.id.home) {
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void logout() {
+        // Clear user session
+        SharedPreferences sharedPreferences = getSharedPreferences("MediCarePrefs", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.clear();
+        editor.apply();
+
+        // Navigate to login
+        Intent intent = new Intent(this, LoginActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        finish();
     }
 
     @Override

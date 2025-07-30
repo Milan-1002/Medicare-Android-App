@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.MediCare" parent="Theme.AppCompat.DayNight.NoActionBar">
+    <style name="Theme.MediCare" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/medical_blue</item>
         <item name="colorPrimaryDark">@color/medical_blue</item>

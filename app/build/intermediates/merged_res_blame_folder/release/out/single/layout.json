@@ -1,0 +1,30 @@
+[
+    {
+        "merged": "com.medicare.app-mergeReleaseResources-28:/layout/item_time.xml",
+        "source": "com.medicare.app-main-30:/layout/item_time.xml"
+    },
+    {
+        "merged": "com.medicare.app-mergeReleaseResources-28:/layout/item_medicine.xml",
+        "source": "com.medicare.app-main-30:/layout/item_medicine.xml"
+    },
+    {
+        "merged": "com.medicare.app-mergeReleaseResources-28:/layout/activity_dashboard.xml",
+        "source": "com.medicare.app-main-30:/layout/activity_dashboard.xml"
+    },
+    {
+        "merged": "com.medicare.app-mergeReleaseResources-28:/layout/activity_main.xml",
+        "source": "com.medicare.app-main-30:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.medicare.app-mergeReleaseResources-28:/layout/activity_login.xml",
+        "source": "com.medicare.app-main-30:/layout/activity_login.xml"
+    },
+    {
+        "merged": "com.medicare.app-mergeReleaseResources-28:/layout/activity_signup.xml",
+        "source": "com.medicare.app-main-30:/layout/activity_signup.xml"
+    },
+    {
+        "merged": "com.medicare.app-mergeReleaseResources-28:/layout/activity_add_medicine.xml",
+        "source": "com.medicare.app-main-30:/layout/activity_add_medicine.xml"
+    }
+]

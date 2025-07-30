@@ -4,9 +4,10 @@ package com.medicare.app.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ScrollView;
+import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
@@ -17,7 +18,7 @@ import java.lang.String;
 
 public final class ActivityMainBinding implements ViewBinding {
   @NonNull
-  private final ScrollView rootView;
+  private final LinearLayout rootView;
 
   @NonNull
   public final CardView cardAddMedicine;
@@ -25,16 +26,20 @@ public final class ActivityMainBinding implements ViewBinding {
   @NonNull
   public final CardView cardDashboard;
 
-  private ActivityMainBinding(@NonNull ScrollView rootView, @NonNull CardView cardAddMedicine,
-      @NonNull CardView cardDashboard) {
+  @NonNull
+  public final Toolbar toolbar;
+
+  private ActivityMainBinding(@NonNull LinearLayout rootView, @NonNull CardView cardAddMedicine,
+      @NonNull CardView cardDashboard, @NonNull Toolbar toolbar) {
     this.rootView = rootView;
     this.cardAddMedicine = cardAddMedicine;
     this.cardDashboard = cardDashboard;
+    this.toolbar = toolbar;
   }
 
   @Override
   @NonNull
-  public ScrollView getRoot() {
+  public LinearLayout getRoot() {
     return rootView;
   }
 
@@ -71,7 +76,14 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityMainBinding((ScrollView) rootView, cardAddMedicine, cardDashboard);
+      id = R.id.toolbar;
+      Toolbar toolbar = ViewBindings.findChildViewById(rootView, id);
+      if (toolbar == null) {
+        break missingId;
+      }
+
+      return new ActivityMainBinding((LinearLayout) rootView, cardAddMedicine, cardDashboard,
+          toolbar);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

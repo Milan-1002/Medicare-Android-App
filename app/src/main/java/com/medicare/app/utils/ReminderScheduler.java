@@ -115,15 +115,15 @@ public class ReminderScheduler {
         Log.d(TAG, "Cancelled reminders for " + medicine.getName());
     }
     
-    public static void rescheduleAllReminders(Context context) {
+    public static void rescheduleAllReminders(Context context, long userId) {
         DatabaseHelper databaseHelper = new DatabaseHelper(context);
-        List<Medicine> activeMedicines = databaseHelper.getActiveMedicines();
+        List<Medicine> activeMedicines = databaseHelper.getActiveMedicines(userId);
         
         for (Medicine medicine : activeMedicines) {
             scheduleReminder(context, medicine);
         }
         
         databaseHelper.close();
-        Log.d(TAG, "Rescheduled all reminders");
+        Log.d(TAG, "Rescheduled all reminders for user: " + userId);
     }
 }

@@ -29,6 +29,7 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.Medici
         void onMedicineClick(Medicine medicine);
         void onDeleteClick(Medicine medicine);
         void onInfoClick(Medicine medicine);
+        void onLearnMoreClick(Medicine medicine);
     }
 
     public MedicineAdapter(Context context, List<Medicine> medicineList, OnMedicineClickListener listener) {
@@ -108,6 +109,15 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.Medici
                 }
             }
         });
+        
+        holder.btnLearnMore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (listener != null) {
+                    listener.onLearnMoreClick(medicine);
+                }
+            }
+        });
     }
 
     @Override
@@ -118,7 +128,7 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.Medici
     public static class MedicineViewHolder extends RecyclerView.ViewHolder {
         CardView cardView;
         TextView tvMedicineName, tvDosage, tvFrequency, tvMedicineType, tvTimes, tvStartDate, tvEndDate, tvNotes;
-        Button btnDelete, btnInfo;
+        Button btnDelete, btnInfo, btnLearnMore;
 
         public MedicineViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -133,6 +143,7 @@ public class MedicineAdapter extends RecyclerView.Adapter<MedicineAdapter.Medici
             tvNotes = itemView.findViewById(R.id.tv_notes);
             btnDelete = itemView.findViewById(R.id.btn_delete);
             btnInfo = itemView.findViewById(R.id.btn_info);
+            btnLearnMore = itemView.findViewById(R.id.btn_learn_more);
         }
     }
 }

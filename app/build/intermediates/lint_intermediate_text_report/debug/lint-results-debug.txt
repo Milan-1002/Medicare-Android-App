@@ -1,0 +1,947 @@
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/java/com/medicare/app/adapters/TimeAdapter.java:38: Error: Do not treat position as fixed; only use immediately and call holder.getAdapterPosition() to look it up later [RecyclerView]
+    public void onBindViewHolder(@NonNull TimeViewHolder holder, int position) {
+                                                                 ~~~~~~~~~~~~
+
+   Explanation for issues of type "RecyclerView":
+   RecyclerView will not call onBindViewHolder again when the position of the
+   item changes in the data set unless the item itself is invalidated or the
+   new position cannot be determined.
+
+   For this reason, you should only use the position parameter while acquiring
+   the related data item inside this method, and should not keep a copy of
+   it.
+
+   If you need the position of an item later on (e.g. in a click listener),
+   use getAdapterPosition() which will have the updated adapter position.
+
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/java/com/medicare/app/database/DatabaseHelper.java:275: Warning: Implicitly using the default locale is a common source of bugs: Use toLowerCase(Locale) instead. For strings meant to be internal use Locale.ROOT, otherwise Locale.getDefault(). [DefaultLocale]
+        values.put(COLUMN_EMAIL, user.getEmail().toLowerCase());
+                                                 ~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/java/com/medicare/app/database/DatabaseHelper.java:293: Warning: Implicitly using the default locale is a common source of bugs: Use toLowerCase(Locale) instead. For strings meant to be internal use Locale.ROOT, otherwise Locale.getDefault(). [DefaultLocale]
+                new String[]{email.toLowerCase(), hashedPassword}, 
+                                   ~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/java/com/medicare/app/database/DatabaseHelper.java:309: Warning: Implicitly using the default locale is a common source of bugs: Use toLowerCase(Locale) instead. For strings meant to be internal use Locale.ROOT, otherwise Locale.getDefault(). [DefaultLocale]
+                COLUMN_EMAIL + "=?", new String[]{email.toLowerCase()}, 
+                                                        ~~~~~~~~~~~
+
+   Explanation for issues of type "DefaultLocale":
+   Calling String#toLowerCase() or #toUpperCase() without specifying an
+   explicit locale is a common source of bugs. The reason for that is that
+   those methods will use the current locale on the user's device, and even
+   though the code appears to work correctly when you are developing the app,
+   it will fail in some locales. For example, in the Turkish locale, the
+   uppercase replacement for i is not I.
+
+   If you want the methods to just perform ASCII replacement, for example to
+   convert an enum name, call String#toUpperCase(Locale.US) instead. If you
+   really want to use the current locale, call
+   String#toUpperCase(Locale.getDefault()) instead.
+
+   https://developer.android.com/reference/java/util/Locale.html#default_locale
+
+/Users/milansunar/Documents/claude code/MediCare/app/build.gradle:12: Warning: Not targeting the latest versions of Android; compatibility modes apply. Consider testing and updating this version. Consult the android.os.Build.VERSION_CODES javadoc for details. [OldTargetApi]
+        targetSdk 34
+        ~~~~~~~~~~~~
+
+   Explanation for issues of type "OldTargetApi":
+   When your application runs on a version of Android that is more recent than
+   your targetSdkVersion specifies that it has been tested with, various
+   compatibility modes kick in. This ensures that your application continues
+   to work, but it may look out of place. For example, if the targetSdkVersion
+   is less than 14, your app may get an option button in the UI.
+
+   To fix this issue, set the targetSdkVersion to the highest available value.
+   Then test your app to make sure everything works correctly. You may want to
+   consult the compatibility notes to see what changes apply to each version
+   you are adding support for:
+   https://developer.android.com/reference/android/os/Build.VERSION_CODES.html
+   as well as follow this guide:
+   https://developer.android.com/distribute/best-practices/develop/target-sdk.
+   html
+
+   https://developer.android.com/distribute/best-practices/develop/target-sdk.html
+
+/Users/milansunar/Documents/claude code/MediCare/app/build.gradle:35: Warning: A newer version of androidx.appcompat:appcompat than 1.6.1 is available: 1.7.1 [GradleDependency]
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/build.gradle:36: Warning: A newer version of com.google.android.material:material than 1.9.0 is available: 1.12.0 [GradleDependency]
+    implementation 'com.google.android.material:material:1.9.0'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/build.gradle:37: Warning: A newer version of androidx.constraintlayout:constraintlayout than 2.1.4 is available: 2.2.1 [GradleDependency]
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/build.gradle:38: Warning: A newer version of androidx.recyclerview:recyclerview than 1.3.2 is available: 1.4.0 [GradleDependency]
+    implementation 'androidx.recyclerview:recyclerview:1.3.2'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/build.gradle:40: Warning: A newer version of androidx.coordinatorlayout:coordinatorlayout than 1.2.0 is available: 1.3.0 [GradleDependency]
+    implementation 'androidx.coordinatorlayout:coordinatorlayout:1.2.0'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/build.gradle:41: Warning: A newer version of com.google.code.gson:gson than 2.10.1 is available: 2.11.0 [GradleDependency]
+    implementation 'com.google.code.gson:gson:2.10.1'
+                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/build.gradle:44: Warning: A newer version of androidx.test.ext:junit than 1.1.5 is available: 1.2.1 [GradleDependency]
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/build.gradle:45: Warning: A newer version of androidx.test.espresso:espresso-core than 3.5.1 is available: 3.6.1 [GradleDependency]
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "GradleDependency":
+   This detector looks for usages of libraries where the version you are using
+   is not the current stable release. Using older versions is fine, and there
+   are cases where you deliberately want to stick with an older version.
+   However, you may simply not be aware that a more recent version is
+   available, and that is what this lint check helps find.
+
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_login.xml:30: Error: Must use app:tint instead of android:tint [UseAppTint from androidx.appcompat]
+                android:tint="@color/medical_blue" />
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_main.xml:28: Error: Must use app:tint instead of android:tint [UseAppTint from androidx.appcompat]
+                android:tint="@color/medical_blue" />
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_main.xml:78: Error: Must use app:tint instead of android:tint [UseAppTint from androidx.appcompat]
+                        android:tint="@color/medical_blue" />
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_main.xml:109: Error: Must use app:tint instead of android:tint [UseAppTint from androidx.appcompat]
+                        android:tint="@color/text_secondary" />
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_main.xml:137: Error: Must use app:tint instead of android:tint [UseAppTint from androidx.appcompat]
+                        android:tint="@color/medical_cyan" />
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_main.xml:168: Error: Must use app:tint instead of android:tint [UseAppTint from androidx.appcompat]
+                        android:tint="@color/text_secondary" />
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_signup.xml:30: Error: Must use app:tint instead of android:tint [UseAppTint from androidx.appcompat]
+                android:tint="@color/medical_blue" />
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/item_time.xml:28: Error: Must use app:tint instead of android:tint [UseAppTint from androidx.appcompat]
+        android:tint="@color/white" />
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "UseAppTint":
+   ImageView or ImageButton uses android:tint instead of app:tint
+
+   Vendor: Android Open Source Project
+   Identifier: androidx.appcompat
+   Feedback: https://issuetracker.google.com/issues/new?component=460343
+
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:38: Warning: Formatting %d followed by words ("times"): This should probably be a plural rather than a string [PluralsCandidate]
+    <string name="times_set">%d times set</string>
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "PluralsCandidate":
+   This lint check looks for potential errors in internationalization where
+   you have translated a message which involves a quantity and it looks like
+   other parts of the string may need grammatical changes.
+
+   For example, rather than something like this:
+     <string name="try_again">Try again in %d seconds.</string>
+   you should be using a plural:
+      <plurals name="try_again">
+           <item quantity="one">Try again in %d second</item>
+           <item quantity="other">Try again in %d seconds</item>
+       </plurals>
+   This will ensure that in other languages the right set of translations are
+   provided for the different quantity classes.
+
+   (This check depends on some heuristics, so it may not accurately determine
+   whether a string really should be a quantity. You can use tools:ignore to
+   filter out false positives.
+
+   https://developer.android.com/guide/topics/resources/string-resource.html#Plurals
+
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/AndroidManifest.xml:5: Warning: Did you mean com.android.alarm.permission.SET_ALARM? [SystemPermissionTypo]
+    <uses-permission android:name="android.permission.SET_ALARM" />
+                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "SystemPermissionTypo":
+   This check looks for required permissions that look like well-known system
+   permissions or permissions from the Android SDK, but aren't, and may be
+   typos.
+
+   Please double check the permission value you have supplied.
+
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/java/com/medicare/app/AddMedicineActivity.java:229: Warning: It will always be more efficient to use more specific change events if you can. Rely on notifyDataSetChanged as a last resort. [NotifyDataSetChanged]
+                if (timeAdapter != null) timeAdapter.notifyDataSetChanged();
+                                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/java/com/medicare/app/DashboardActivity.java:179: Warning: It will always be more efficient to use more specific change events if you can. Rely on notifyDataSetChanged as a last resort. [NotifyDataSetChanged]
+                medicineAdapter.notifyDataSetChanged();
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "NotifyDataSetChanged":
+   The RecyclerView adapter's onNotifyDataSetChanged method does not specify
+   what about the data set has changed, forcing any observers to assume that
+   all existing items and structure may no longer be valid. `LayoutManager`s
+   will be forced to fully rebind and relayout all visible views.
+
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/java/com/medicare/app/utils/ReminderScheduler.java:72: Warning: Unnecessary; SDK_INT is always >= 24 [ObsoleteSdkInt]
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "ObsoleteSdkInt":
+   This check flags version checks that are not necessary, because the
+   minSdkVersion (or surrounding known API level) is already at least as high
+   as the version checked for.
+
+   Similarly, it also looks for resources in -vNN folders, such as values-v14
+   where the version qualifier is less than or equal to the minSdkVersion,
+   where the contents should be merged into the best folder.
+
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_dashboard.xml:21: Warning: Set android:baselineAligned="false" on this element for better performance [DisableBaselineAlignment]
+            <LinearLayout
+             ~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/item_medicine.xml:21: Warning: Set android:baselineAligned="false" on this element for better performance [DisableBaselineAlignment]
+        <LinearLayout
+         ~~~~~~~~~~~~
+
+   Explanation for issues of type "DisableBaselineAlignment":
+   When a LinearLayout is used to distribute the space proportionally between
+   nested layouts, the baseline alignment property should be turned off to
+   make the layout computation faster.
+
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_add_medicine.xml:7: Warning: Possible overdraw: Root element paints background @color/background_light with a theme that also paints a background (inferred theme is @style/Theme.MediCare) [Overdraw]
+    android:background="@color/background_light"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_dashboard.xml:7: Warning: Possible overdraw: Root element paints background @color/background_light with a theme that also paints a background (inferred theme is @style/Theme.MediCare) [Overdraw]
+    android:background="@color/background_light"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_login.xml:7: Warning: Possible overdraw: Root element paints background @color/background_light with a theme that also paints a background (inferred theme is @style/Theme_MediCare) [Overdraw]
+    android:background="@color/background_light"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_main.xml:7: Warning: Possible overdraw: Root element paints background @color/background_light with a theme that also paints a background (inferred theme is @style/Theme_MediCare) [Overdraw]
+    android:background="@color/background_light"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_signup.xml:7: Warning: Possible overdraw: Root element paints background @color/background_light with a theme that also paints a background (inferred theme is @style/Theme.MediCare) [Overdraw]
+    android:background="@color/background_light"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/item_time.xml:8: Warning: Possible overdraw: Root element paints background @color/background_light with a theme that also paints a background (inferred theme is @style/Theme.MediCare) [Overdraw]
+    android:background="@color/background_light"
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "Overdraw":
+   If you set a background drawable on a root view, then you should use a
+   custom theme where the theme background is null. Otherwise, the theme
+   background will be painted first, only to have your custom background
+   completely cover it; this is called "overdraw".
+
+   NOTE: This detector relies on figuring out which layouts are associated
+   with which activities based on scanning the Java code, and it's currently
+   doing that using an inexact pattern matching algorithm. Therefore, it can
+   incorrectly conclude which activity the layout is associated with and then
+   wrongly complain that a background-theme is hidden.
+
+   If you want your custom background on multiple pages, then you should
+   consider making a custom theme with your custom background and just using
+   that theme instead of a root element background.
+
+   Of course it's possible that your custom drawable is translucent and you
+   want it to be mixed with the background. However, you will get better
+   performance if you pre-mix the background with your drawable and use that
+   resulting image or color as a custom theme background instead.
+
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/colors.xml:19: Warning: The resource R.color.warning_orange appears to be unused [UnusedResources]
+    <color name="warning_orange">#f59e0b</color>
+           ~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/colors.xml:27: Warning: The resource R.color.purple_200 appears to be unused [UnusedResources]
+    <color name="purple_200">#FFBB86FC</color>
+           ~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/colors.xml:28: Warning: The resource R.color.purple_500 appears to be unused [UnusedResources]
+    <color name="purple_500">#FF6200EE</color>
+           ~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/colors.xml:29: Warning: The resource R.color.purple_700 appears to be unused [UnusedResources]
+    <color name="purple_700">#FF3700B3</color>
+           ~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/colors.xml:30: Warning: The resource R.color.teal_200 appears to be unused [UnusedResources]
+    <color name="teal_200">#FF03DAC5</color>
+           ~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/colors.xml:31: Warning: The resource R.color.teal_700 appears to be unused [UnusedResources]
+    <color name="teal_700">#FF018786</color>
+           ~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/colors.xml:32: Warning: The resource R.color.black appears to be unused [UnusedResources]
+    <color name="black">#FF000000</color>
+           ~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:5: Warning: The resource R.string.dashboard appears to be unused [UnusedResources]
+    <string name="dashboard">Dashboard</string>
+            ~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:6: Warning: The resource R.string.add_medicine appears to be unused [UnusedResources]
+    <string name="add_medicine">Add Medicine</string>
+            ~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:9: Warning: The resource R.string.good_morning appears to be unused [UnusedResources]
+    <string name="good_morning">Good Morning</string>
+            ~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:10: Warning: The resource R.string.good_afternoon appears to be unused [UnusedResources]
+    <string name="good_afternoon">Good Afternoon</string>
+            ~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:11: Warning: The resource R.string.good_evening appears to be unused [UnusedResources]
+    <string name="good_evening">Good Evening</string>
+            ~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:12: Warning: The resource R.string.overview_subtitle appears to be unused [UnusedResources]
+    <string name="overview_subtitle">Here\'s your medication overview</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:13: Warning: The resource R.string.active_medicines appears to be unused [UnusedResources]
+    <string name="active_medicines">Active Medicines</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:14: Warning: The resource R.string.todays_medicines appears to be unused [UnusedResources]
+    <string name="todays_medicines">Today\'s Medicines</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:15: Warning: The resource R.string.reminders_today appears to be unused [UnusedResources]
+    <string name="reminders_today">Reminders Today</string>
+            ~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:16: Warning: The resource R.string.adherence_rate appears to be unused [UnusedResources]
+    <string name="adherence_rate">Adherence Rate</string>
+            ~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:17: Warning: The resource R.string.upcoming_reminders appears to be unused [UnusedResources]
+    <string name="upcoming_reminders">Upcoming Reminders</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:18: Warning: The resource R.string.your_medicines appears to be unused [UnusedResources]
+    <string name="your_medicines">Your Medicines</string>
+            ~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:19: Warning: The resource R.string.no_medicines appears to be unused [UnusedResources]
+    <string name="no_medicines">No medicines added yet.\nTap the + button to add your first medicine.</string>
+            ~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:22: Warning: The resource R.string.add_new_medicine appears to be unused [UnusedResources]
+    <string name="add_new_medicine">Add New Medicine</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:23: Warning: The resource R.string.medicine_name appears to be unused [UnusedResources]
+    <string name="medicine_name">Medicine Name</string>
+            ~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:24: Warning: The resource R.string.dosage appears to be unused [UnusedResources]
+    <string name="dosage">Dosage (e.g., 10mg, 1 tablet)</string>
+            ~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:25: Warning: The resource R.string.frequency appears to be unused [UnusedResources]
+    <string name="frequency">Frequency</string>
+            ~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:26: Warning: The resource R.string.medicine_type appears to be unused [UnusedResources]
+    <string name="medicine_type">Medicine Type</string>
+            ~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:27: Warning: The resource R.string.reminder_times appears to be unused [UnusedResources]
+    <string name="reminder_times">Reminder Times</string>
+            ~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:28: Warning: The resource R.string.add_time appears to be unused [UnusedResources]
+    <string name="add_time">Add Time</string>
+            ~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:29: Warning: The resource R.string.start_date appears to be unused [UnusedResources]
+    <string name="start_date">Start Date</string>
+            ~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:30: Warning: The resource R.string.end_date appears to be unused [UnusedResources]
+    <string name="end_date">End Date (Optional)</string>
+            ~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:31: Warning: The resource R.string.notes appears to be unused [UnusedResources]
+    <string name="notes">Notes (Optional)</string>
+            ~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:32: Warning: The resource R.string.save_medicine appears to be unused [UnusedResources]
+    <string name="save_medicine">Save Medicine</string>
+            ~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:33: Warning: The resource R.string.cancel appears to be unused [UnusedResources]
+    <string name="cancel">Cancel</string>
+            ~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:34: Warning: The resource R.string.select_date appears to be unused [UnusedResources]
+    <string name="select_date">Select Date</string>
+            ~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:35: Warning: The resource R.string.no_date_selected appears to be unused [UnusedResources]
+    <string name="no_date_selected">No date selected</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:36: Warning: The resource R.string.no_end_date appears to be unused [UnusedResources]
+    <string name="no_end_date">No end date</string>
+            ~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:37: Warning: The resource R.string.tap_to_add_time appears to be unused [UnusedResources]
+    <string name="tap_to_add_time">Tap to add time</string>
+            ~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:38: Warning: The resource R.string.times_set appears to be unused [UnusedResources]
+    <string name="times_set">%d times set</string>
+            ~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:41: Warning: The resource R.string.once_daily appears to be unused [UnusedResources]
+    <string name="once_daily">Once daily</string>
+            ~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:42: Warning: The resource R.string.twice_daily appears to be unused [UnusedResources]
+    <string name="twice_daily">Twice daily</string>
+            ~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:43: Warning: The resource R.string.three_times_daily appears to be unused [UnusedResources]
+    <string name="three_times_daily">Three times daily</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:44: Warning: The resource R.string.four_times_daily appears to be unused [UnusedResources]
+    <string name="four_times_daily">Four times daily</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:45: Warning: The resource R.string.every_6_hours appears to be unused [UnusedResources]
+    <string name="every_6_hours">Every 6 hours</string>
+            ~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:46: Warning: The resource R.string.every_8_hours appears to be unused [UnusedResources]
+    <string name="every_8_hours">Every 8 hours</string>
+            ~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:47: Warning: The resource R.string.every_12_hours appears to be unused [UnusedResources]
+    <string name="every_12_hours">Every 12 hours</string>
+            ~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:48: Warning: The resource R.string.as_needed appears to be unused [UnusedResources]
+    <string name="as_needed">As needed</string>
+            ~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:51: Warning: The resource R.string.tablet appears to be unused [UnusedResources]
+    <string name="tablet">Tablet</string>
+            ~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:52: Warning: The resource R.string.capsule appears to be unused [UnusedResources]
+    <string name="capsule">Capsule</string>
+            ~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:53: Warning: The resource R.string.liquid appears to be unused [UnusedResources]
+    <string name="liquid">Liquid</string>
+            ~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:54: Warning: The resource R.string.injection appears to be unused [UnusedResources]
+    <string name="injection">Injection</string>
+            ~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:55: Warning: The resource R.string.topical appears to be unused [UnusedResources]
+    <string name="topical">Topical</string>
+            ~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:56: Warning: The resource R.string.inhaler appears to be unused [UnusedResources]
+    <string name="inhaler">Inhaler</string>
+            ~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:57: Warning: The resource R.string.drops appears to be unused [UnusedResources]
+    <string name="drops">Drops</string>
+            ~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:58: Warning: The resource R.string.other appears to be unused [UnusedResources]
+    <string name="other">Other</string>
+            ~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:62: Warning: The resource R.string.delete_medicine appears to be unused [UnusedResources]
+    <string name="delete_medicine">Delete Medicine</string>
+            ~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:63: Warning: The resource R.string.delete_confirmation appears to be unused [UnusedResources]
+    <string name="delete_confirmation">Are you sure you want to delete %s?</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:64: Warning: The resource R.string.delete appears to be unused [UnusedResources]
+    <string name="delete">Delete</string>
+            ~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:65: Warning: The resource R.string.medicine_info appears to be unused [UnusedResources]
+    <string name="medicine_info">Medicine Information</string>
+            ~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:66: Warning: The resource R.string.ok appears to be unused [UnusedResources]
+    <string name="ok">OK</string>
+            ~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:69: Warning: The resource R.string.medicine_reminder appears to be unused [UnusedResources]
+    <string name="medicine_reminder">Medicine Reminder</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:70: Warning: The resource R.string.time_to_take appears to be unused [UnusedResources]
+    <string name="time_to_take">Time to take %s</string>
+            ~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:73: Warning: The resource R.string.medicine_added_successfully appears to be unused [UnusedResources]
+    <string name="medicine_added_successfully">Medicine added successfully</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:74: Warning: The resource R.string.error_adding_medicine appears to be unused [UnusedResources]
+    <string name="error_adding_medicine">Error adding medicine</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:75: Warning: The resource R.string.medicine_deleted appears to be unused [UnusedResources]
+    <string name="medicine_deleted">Medicine deleted</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:76: Warning: The resource R.string.error_deleting_medicine appears to be unused [UnusedResources]
+    <string name="error_deleting_medicine">Error deleting medicine</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:77: Warning: The resource R.string.error_loading_medicines appears to be unused [UnusedResources]
+    <string name="error_loading_medicines">Error loading medicines</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:78: Warning: The resource R.string.error_updating_stats appears to be unused [UnusedResources]
+    <string name="error_updating_stats">Error updating stats</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:79: Warning: The resource R.string.time_already_added appears to be unused [UnusedResources]
+    <string name="time_already_added">Time already added</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:80: Warning: The resource R.string.please_add_reminder_time appears to be unused [UnusedResources]
+    <string name="please_add_reminder_time">Please add at least one reminder time</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:81: Warning: The resource R.string.please_select_start_date appears to be unused [UnusedResources]
+    <string name="please_select_start_date">Please select a start date</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:82: Warning: The resource R.string.medicine_name_required appears to be unused [UnusedResources]
+    <string name="medicine_name_required">Medicine name is required</string>
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:83: Warning: The resource R.string.dosage_required appears to be unused [UnusedResources]
+    <string name="dosage_required">Dosage is required</string>
+            ~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:86: Warning: The resource R.string.started appears to be unused [UnusedResources]
+    <string name="started">Started: %s</string>
+            ~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:87: Warning: The resource R.string.ends appears to be unused [UnusedResources]
+    <string name="ends">Ends: %s</string>
+            ~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/strings.xml:88: Warning: The resource R.string.next_reminder appears to be unused [UnusedResources]
+    <string name="next_reminder">Next reminder: %s</string>
+            ~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/themes.xml:13: Warning: The resource R.style.Theme_MediCare_NoActionBar appears to be unused [UnusedResources]
+    <style name="Theme.MediCare.NoActionBar">
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/themes.xml:18: Warning: The resource R.style.Theme_MediCare_AppBarOverlay appears to be unused [UnusedResources]
+    <style name="Theme.MediCare.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/values/themes.xml:20: Warning: The resource R.style.Theme_MediCare_PopupOverlay appears to be unused [UnusedResources]
+    <style name="Theme.MediCare.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "UnusedResources":
+   Unused resources make applications larger and slow down builds.
+
+
+   The unused resource check can ignore tests. If you want to include
+   resources that are only referenced from tests, consider packaging them in a
+   test source set instead.
+
+   You can include test sources in the unused resource check by setting the
+   system property lint.unused-resources.include-tests =true, and to exclude
+   them (usually for performance reasons), use
+   lint.unused-resources.exclude-tests =true.
+   ,
+
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_dashboard.xml:28: Warning: This LinearLayout layout or its LinearLayout parent is unnecessary [UselessParent]
+                <LinearLayout
+                 ~~~~~~~~~~~~
+
+   Explanation for issues of type "UselessParent":
+   A layout with children that has no siblings, is not a scrollview or a root
+   layout, and does not have a background, can be removed and have its
+   children moved directly into the parent for a flatter and more efficient
+   layout hierarchy.
+
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_add_medicine.xml:228: Warning: Buttons in button bars should be borderless; use style="?android:attr/buttonBarButtonStyle" (and ?android:attr/buttonBarStyle on the parent) [ButtonStyle]
+            <Button
+             ~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_add_medicine.xml:237: Warning: Buttons in button bars should be borderless; use style="?android:attr/buttonBarButtonStyle" (and ?android:attr/buttonBarStyle on the parent) [ButtonStyle]
+            <Button
+             ~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/item_medicine.xml:78: Warning: Buttons in button bars should be borderless; use style="?android:attr/buttonBarButtonStyle" (and ?android:attr/buttonBarStyle on the parent) [ButtonStyle]
+                <Button
+                 ~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/item_medicine.xml:89: Warning: Buttons in button bars should be borderless; use style="?android:attr/buttonBarButtonStyle" (and ?android:attr/buttonBarStyle on the parent) [ButtonStyle]
+                <Button
+                 ~~~~~~
+
+   Explanation for issues of type "ButtonStyle":
+   Button bars typically use a borderless style for the buttons. Set the
+   style="?android:attr/buttonBarButtonStyle" attribute on each of the
+   buttons, and set style="?android:attr/buttonBarStyle" on the parent layout
+
+   https://d.android.com/r/studio-ui/designer/material/dialogs
+
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_add_medicine.xml:97: Warning: This text field does not specify an inputType [TextFields]
+            <EditText
+             ~~~~~~~~
+
+   Explanation for issues of type "TextFields":
+   Providing an inputType attribute on a text field improves usability because
+   depending on the data to be input, optimized keyboards can be shown to the
+   user (such as just digits and parentheses for a phone number). 
+
+   The lint detector also looks at the id of the view, and if the id offers a
+   hint of the purpose of the field (for example, the id contains the phrase
+   phone or email), then lint will also ensure that the inputType contains the
+   corresponding type attributes.
+
+   If you really want to keep the text field generic, you can suppress this
+   warning by setting inputType="text".
+
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_add_medicine.xml:27: Warning: Missing autofillHints attribute [Autofill]
+        <EditText
+         ~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_add_medicine.xml:38: Warning: Missing autofillHints attribute [Autofill]
+        <EditText
+         ~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_add_medicine.xml:97: Warning: Missing autofillHints attribute [Autofill]
+            <EditText
+             ~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_add_medicine.xml:209: Warning: Missing autofillHints attribute [Autofill]
+        <EditText
+         ~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_login.xml:74: Warning: Missing autofillHints attribute [Autofill]
+                <EditText
+                 ~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_login.xml:95: Warning: Missing autofillHints attribute [Autofill]
+                <EditText
+                 ~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_signup.xml:74: Warning: Missing autofillHints attribute [Autofill]
+                <EditText
+                 ~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_signup.xml:95: Warning: Missing autofillHints attribute [Autofill]
+                <EditText
+                 ~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_signup.xml:116: Warning: Missing autofillHints attribute [Autofill]
+                <EditText
+                 ~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_signup.xml:137: Warning: Missing autofillHints attribute [Autofill]
+                <EditText
+                 ~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_signup.xml:158: Warning: Missing autofillHints attribute [Autofill]
+                <EditText
+                 ~~~~~~~~
+
+   Explanation for issues of type "Autofill":
+   Specify an autofillHints attribute when targeting SDK version 26 or higher
+   or explicitly specify that the view is not important for autofill. Your app
+   can help an autofill service classify the data correctly by providing the
+   meaning of each view that could be autofillable, such as views representing
+   usernames, passwords, credit card fields, email addresses, etc.
+
+   The hints can have any value, but it is recommended to use predefined
+   values like 'username' for a username or 'creditCardNumber' for a credit
+   card number. For a list of all predefined autofill hint constants, see the
+   AUTOFILL_HINT_ constants in the View reference at
+   https://developer.android.com/reference/android/view/View.html.
+
+   You can mark a view unimportant for autofill by specifying an
+   importantForAutofill attribute on that view or a parent view. See
+   https://developer.android.com/reference/android/view/View.html#setImportant
+   ForAutofill(int).
+
+   https://developer.android.com/guide/topics/text/autofill.html
+
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_dashboard.xml:290: Warning: Missing contentDescription attribute on image [ContentDescription]
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_login.xml:26: Warning: Missing contentDescription attribute on image [ContentDescription]
+            <ImageView
+             ~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_main.xml:24: Warning: Missing contentDescription attribute on image [ContentDescription]
+            <ImageView
+             ~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_main.xml:74: Warning: Missing contentDescription attribute on image [ContentDescription]
+                    <ImageView
+                     ~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_main.xml:105: Warning: Missing contentDescription attribute on image [ContentDescription]
+                    <ImageView
+                     ~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_main.xml:133: Warning: Missing contentDescription attribute on image [ContentDescription]
+                    <ImageView
+                     ~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_main.xml:164: Warning: Missing contentDescription attribute on image [ContentDescription]
+                    <ImageView
+                     ~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_signup.xml:26: Warning: Missing contentDescription attribute on image [ContentDescription]
+            <ImageView
+             ~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/item_time.xml:21: Warning: Missing contentDescription attribute on image [ContentDescription]
+    <ImageButton
+     ~~~~~~~~~~~
+
+   Explanation for issues of type "ContentDescription":
+   Non-textual widgets like ImageViews and ImageButtons should use the
+   contentDescription attribute to specify a textual description of the widget
+   such that screen readers and other accessibility tools can adequately
+   describe the user interface.
+
+   Note that elements in application screens that are purely decorative and do
+   not provide any content or enable a user action should not have
+   accessibility content descriptions. In this case, set their descriptions to
+   @null. If your app's minSdkVersion is 16 or higher, you can instead set
+   these graphical elements' android:importantForAccessibility attributes to
+   no.
+
+   Note that for text fields, you should not set both the hint and the
+   contentDescription attributes since the hint will never be shown. Just set
+   the hint.
+
+   https://developer.android.com/guide/topics/ui/accessibility/apps#special-cases
+
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_add_medicine.xml:104: Warning: 'clickable' attribute found, please also add 'focusable' [KeyboardInaccessibleWidget]
+                android:clickable="true"
+                ~~~~~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "KeyboardInaccessibleWidget":
+   A widget that is declared to be clickable but not declared to be focusable
+   is not accessible via the keyboard. Please add the focusable attribute as
+   well.
+
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/java/com/medicare/app/DashboardActivity.java:158: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                tvGreeting.setText("Welcome");
+                                   ~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/java/com/medicare/app/DashboardActivity.java:216: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                tvAdherenceRate.setText("98%"); // Placeholder
+                                        ~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/java/com/medicare/app/DashboardActivity.java:250: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+            tvNextReminder.setText("Next reminder: " + nextReminder);
+                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/java/com/medicare/app/DashboardActivity.java:250: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            tvNextReminder.setText("Next reminder: " + nextReminder);
+                                   ~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/java/com/medicare/app/LoginActivity.java:97: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+        btnLogin.setText("Signing In...");
+                         ~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/java/com/medicare/app/LoginActivity.java:112: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                            btnLogin.setText("Sign In");
+                                             ~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/java/com/medicare/app/LoginActivity.java:137: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                            btnLogin.setText("Sign In");
+                                             ~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/java/com/medicare/app/adapters/MedicineAdapter.java:58: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+            holder.tvStartDate.setText("Started: " + dateFormat.format(medicine.getStartDate()));
+                                       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/java/com/medicare/app/adapters/MedicineAdapter.java:58: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            holder.tvStartDate.setText("Started: " + dateFormat.format(medicine.getStartDate()));
+                                       ~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/java/com/medicare/app/adapters/MedicineAdapter.java:64: Warning: Do not concatenate text displayed with setText. Use resource string with placeholders. [SetTextI18n]
+            holder.tvEndDate.setText("Ends: " + dateFormat.format(medicine.getEndDate()));
+                                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/java/com/medicare/app/adapters/MedicineAdapter.java:64: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+            holder.tvEndDate.setText("Ends: " + dateFormat.format(medicine.getEndDate()));
+                                     ~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/java/com/medicare/app/SignupActivity.java:83: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+        btnSignup.setText("Creating Account...");
+                          ~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/java/com/medicare/app/SignupActivity.java:100: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                                btnSignup.setText("Create Account");
+                                                  ~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/java/com/medicare/app/SignupActivity.java:125: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                                btnSignup.setText("Create Account");
+                                                  ~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/java/com/medicare/app/SignupActivity.java:136: Warning: String literal in setText can not be translated. Use Android resources instead. [SetTextI18n]
+                            btnSignup.setText("Create Account");
+                                              ~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "SetTextI18n":
+   When calling TextView#setText
+   * Never call Number#toString() to format numbers; it will not handle
+   fraction separators and locale-specific digits properly. Consider using
+   String#format with proper format specifications (%d or %f) instead.
+   * Do not pass a string literal (e.g. "Hello") to display text. Hardcoded
+   text can not be properly translated to other languages. Consider using
+   Android resource strings instead.
+   * Do not build messages by concatenating text chunks. Such messages can not
+   be properly translated.
+
+   https://developer.android.com/guide/topics/resources/localization.html
+
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_add_medicine.xml:20: Warning: Hardcoded string "Add New Medicine", should use @string resource [HardcodedText]
+            android:text="Add New Medicine"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_add_medicine.xml:32: Warning: Hardcoded string "Medicine Name", should use @string resource [HardcodedText]
+            android:hint="Medicine Name"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_add_medicine.xml:43: Warning: Hardcoded string "Dosage (e.g., 10mg, 1 tablet)", should use @string resource [HardcodedText]
+            android:hint="Dosage (e.g., 10mg, 1 tablet)"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_add_medicine.xml:52: Warning: Hardcoded string "Frequency", should use @string resource [HardcodedText]
+            android:text="Frequency"
+            ~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_add_medicine.xml:69: Warning: Hardcoded string "Medicine Type", should use @string resource [HardcodedText]
+            android:text="Medicine Type"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_add_medicine.xml:86: Warning: Hardcoded string "Reminder Times", should use @string resource [HardcodedText]
+            android:text="Reminder Times"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_add_medicine.xml:102: Warning: Hardcoded string "Tap to add time", should use @string resource [HardcodedText]
+                android:hint="Tap to add time"
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_add_medicine.xml:113: Warning: Hardcoded string "Add Time", should use @string resource [HardcodedText]
+                android:text="Add Time"
+                ~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_add_medicine.xml:122: Warning: Hardcoded string "0 times set", should use @string resource [HardcodedText]
+            android:text="0 times set"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_add_medicine.xml:138: Warning: Hardcoded string "Start Date", should use @string resource [HardcodedText]
+            android:text="Start Date"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_add_medicine.xml:154: Warning: Hardcoded string "Select Date", should use @string resource [HardcodedText]
+                android:text="Select Date"
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_add_medicine.xml:163: Warning: Hardcoded string "No date selected", should use @string resource [HardcodedText]
+                android:text="No date selected"
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_add_medicine.xml:175: Warning: Hardcoded string "End Date (Optional)", should use @string resource [HardcodedText]
+            android:text="End Date (Optional)"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_add_medicine.xml:191: Warning: Hardcoded string "Select Date", should use @string resource [HardcodedText]
+                android:text="Select Date"
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_add_medicine.xml:200: Warning: Hardcoded string "No end date", should use @string resource [HardcodedText]
+                android:text="No end date"
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_add_medicine.xml:214: Warning: Hardcoded string "Notes (Optional)", should use @string resource [HardcodedText]
+            android:hint="Notes (Optional)"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_add_medicine.xml:233: Warning: Hardcoded string "Cancel", should use @string resource [HardcodedText]
+                android:text="Cancel"
+                ~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_add_medicine.xml:242: Warning: Hardcoded string "Save Medicine", should use @string resource [HardcodedText]
+                android:text="Save Medicine"
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_dashboard.xml:38: Warning: Hardcoded string "Good Morning", should use @string resource [HardcodedText]
+                        android:text="Good Morning"
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_dashboard.xml:46: Warning: Hardcoded string "Here's your medication overview", should use @string resource [HardcodedText]
+                        android:text="Here's your medication overview"
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_dashboard.xml:81: Warning: Hardcoded string "0", should use @string resource [HardcodedText]
+                            android:text="0"
+                            ~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_dashboard.xml:89: Warning: Hardcoded string "Active Medicines", should use @string resource [HardcodedText]
+                            android:text="Active Medicines"
+                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_dashboard.xml:117: Warning: Hardcoded string "0", should use @string resource [HardcodedText]
+                            android:text="0"
+                            ~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_dashboard.xml:125: Warning: Hardcoded string "Today's Medicines", should use @string resource [HardcodedText]
+                            android:text="Today's Medicines"
+                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_dashboard.xml:161: Warning: Hardcoded string "0", should use @string resource [HardcodedText]
+                            android:text="0"
+                            ~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_dashboard.xml:169: Warning: Hardcoded string "Reminders Today", should use @string resource [HardcodedText]
+                            android:text="Reminders Today"
+                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_dashboard.xml:197: Warning: Hardcoded string "98%", should use @string resource [HardcodedText]
+                            android:text="98%"
+                            ~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_dashboard.xml:205: Warning: Hardcoded string "Adherence Rate", should use @string resource [HardcodedText]
+                            android:text="Adherence Rate"
+                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_dashboard.xml:234: Warning: Hardcoded string "Upcoming Reminders", should use @string resource [HardcodedText]
+                        android:text="Upcoming Reminders"
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_dashboard.xml:243: Warning: Hardcoded string "Next reminder: 08:00 AM", should use @string resource [HardcodedText]
+                        android:text="Next reminder: 08:00 AM"
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_dashboard.xml:261: Warning: Hardcoded string "Your Medicines", should use @string resource [HardcodedText]
+                    android:text="Your Medicines"
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_dashboard.xml:277: Warning: Hardcoded string "No medicines added yet.nTap the + button to add your first medicine.", should use @string resource [HardcodedText]
+                    android:text="No medicines added yet.\nTap the + button to add your first medicine."
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_login.xml:35: Warning: Hardcoded string "Welcome Back", should use @string resource [HardcodedText]
+                android:text="Welcome Back"
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_login.xml:44: Warning: Hardcoded string "Sign in to continue to MediCare", should use @string resource [HardcodedText]
+                android:text="Sign in to continue to MediCare"
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_login.xml:69: Warning: Hardcoded string "Email Address", should use @string resource [HardcodedText]
+                    android:text="Email Address"
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_login.xml:78: Warning: Hardcoded string "Enter your email", should use @string resource [HardcodedText]
+                    android:hint="Enter your email"
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_login.xml:90: Warning: Hardcoded string "Password", should use @string resource [HardcodedText]
+                    android:text="Password"
+                    ~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_login.xml:99: Warning: Hardcoded string "Enter your password", should use @string resource [HardcodedText]
+                    android:hint="Enter your password"
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_login.xml:112: Warning: Hardcoded string "Sign In", should use @string resource [HardcodedText]
+                    android:text="Sign In"
+                    ~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_login.xml:124: Warning: Hardcoded string "Invalid email or password", should use @string resource [HardcodedText]
+                    android:text="Invalid email or password"
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_login.xml:145: Warning: Hardcoded string "Don't have an account? ", should use @string resource [HardcodedText]
+                android:text="Don't have an account? "
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_login.xml:153: Warning: Hardcoded string "Sign Up", should use @string resource [HardcodedText]
+                android:text="Sign Up"
+                ~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_main.xml:33: Warning: Hardcoded string "MediCare", should use @string resource [HardcodedText]
+                android:text="MediCare"
+                ~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_main.xml:42: Warning: Hardcoded string "Your Personal Medication Assistant", should use @string resource [HardcodedText]
+                android:text="Your Personal Medication Assistant"
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_main.xml:90: Warning: Hardcoded string "Dashboard", should use @string resource [HardcodedText]
+                            android:text="Dashboard"
+                            ~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_main.xml:98: Warning: Hardcoded string "View your medicines and reminders", should use @string resource [HardcodedText]
+                            android:text="View your medicines and reminders"
+                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_main.xml:149: Warning: Hardcoded string "Add Medicine", should use @string resource [HardcodedText]
+                            android:text="Add Medicine"
+                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_main.xml:157: Warning: Hardcoded string "Add a new medicine to your schedule", should use @string resource [HardcodedText]
+                            android:text="Add a new medicine to your schedule"
+                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_signup.xml:35: Warning: Hardcoded string "Create Account", should use @string resource [HardcodedText]
+                android:text="Create Account"
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_signup.xml:44: Warning: Hardcoded string "Join MediCare today", should use @string resource [HardcodedText]
+                android:text="Join MediCare today"
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_signup.xml:69: Warning: Hardcoded string "First Name", should use @string resource [HardcodedText]
+                    android:text="First Name"
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_signup.xml:78: Warning: Hardcoded string "Enter your first name", should use @string resource [HardcodedText]
+                    android:hint="Enter your first name"
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_signup.xml:90: Warning: Hardcoded string "Last Name", should use @string resource [HardcodedText]
+                    android:text="Last Name"
+                    ~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_signup.xml:99: Warning: Hardcoded string "Enter your last name", should use @string resource [HardcodedText]
+                    android:hint="Enter your last name"
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_signup.xml:111: Warning: Hardcoded string "Email Address", should use @string resource [HardcodedText]
+                    android:text="Email Address"
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_signup.xml:120: Warning: Hardcoded string "Enter your email", should use @string resource [HardcodedText]
+                    android:hint="Enter your email"
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_signup.xml:132: Warning: Hardcoded string "Password (min. 6 characters)", should use @string resource [HardcodedText]
+                    android:text="Password (min. 6 characters)"
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_signup.xml:141: Warning: Hardcoded string "Enter your password", should use @string resource [HardcodedText]
+                    android:hint="Enter your password"
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_signup.xml:153: Warning: Hardcoded string "Confirm Password", should use @string resource [HardcodedText]
+                    android:text="Confirm Password"
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_signup.xml:162: Warning: Hardcoded string "Confirm your password", should use @string resource [HardcodedText]
+                    android:hint="Confirm your password"
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_signup.xml:175: Warning: Hardcoded string "Create Account", should use @string resource [HardcodedText]
+                    android:text="Create Account"
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_signup.xml:187: Warning: Hardcoded string "Error message", should use @string resource [HardcodedText]
+                    android:text="Error message"
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_signup.xml:208: Warning: Hardcoded string "Already have an account? ", should use @string resource [HardcodedText]
+                android:text="Already have an account? "
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/activity_signup.xml:216: Warning: Hardcoded string "Sign In", should use @string resource [HardcodedText]
+                android:text="Sign In"
+                ~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/menu/dashboard_menu.xml:7: Warning: Hardcoded string "Logout", should use @string resource [HardcodedText]
+        android:title="Logout"
+        ~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/item_medicine.xml:37: Warning: Hardcoded string "Medicine Name", should use @string resource [HardcodedText]
+                    android:text="Medicine Name"
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/item_medicine.xml:52: Warning: Hardcoded string "10mg", should use @string resource [HardcodedText]
+                        android:text="10mg"
+                        ~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/item_medicine.xml:63: Warning: Hardcoded string "Tablet", should use @string resource [HardcodedText]
+                        android:text="Tablet"
+                        ~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/item_medicine.xml:84: Warning: Hardcoded string "i", should use @string resource [HardcodedText]
+                    android:text="i"
+                    ~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/item_medicine.xml:95: Warning: Hardcoded string "✕", should use @string resource [HardcodedText]
+                    android:text="✕"
+                    ~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/item_medicine.xml:114: Warning: Hardcoded string "Twice daily", should use @string resource [HardcodedText]
+                android:text="Twice daily"
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/item_medicine.xml:123: Warning: Hardcoded string "08:00, 20:00", should use @string resource [HardcodedText]
+                android:text="08:00, 20:00"
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/item_medicine.xml:142: Warning: Hardcoded string "Started: Jan 15, 2024", should use @string resource [HardcodedText]
+                android:text="Started: Jan 15, 2024"
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/item_medicine.xml:150: Warning: Hardcoded string "Ends: Feb 15, 2024", should use @string resource [HardcodedText]
+                android:text="Ends: Feb 15, 2024"
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/item_medicine.xml:162: Warning: Hardcoded string "Take with food", should use @string resource [HardcodedText]
+            android:text="Take with food"
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/milansunar/Documents/claude code/MediCare/app/src/main/res/layout/item_time.xml:16: Warning: Hardcoded string "08:00", should use @string resource [HardcodedText]
+        android:text="08:00"
+        ~~~~~~~~~~~~~~~~~~~~
+
+   Explanation for issues of type "HardcodedText":
+   Hardcoding text attributes directly in layout files is bad for several
+   reasons:
+
+   * When creating configuration variations (for example for landscape or
+   portrait) you have to repeat the actual text (and keep it up to date when
+   making changes)
+
+   * The application cannot be translated to other languages by just adding
+   new translations for existing string resources.
+
+   There are quickfixes to automatically extract this hardcoded string into a
+   resource lookup.
+
+9 errors, 220 warnings

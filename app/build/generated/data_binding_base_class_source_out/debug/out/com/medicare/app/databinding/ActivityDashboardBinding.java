@@ -4,10 +4,11 @@ package com.medicare.app.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
@@ -19,13 +20,16 @@ import java.lang.String;
 
 public final class ActivityDashboardBinding implements ViewBinding {
   @NonNull
-  private final CoordinatorLayout rootView;
+  private final LinearLayout rootView;
 
   @NonNull
   public final FloatingActionButton fabAddMedicine;
 
   @NonNull
   public final RecyclerView recyclerMedicines;
+
+  @NonNull
+  public final Toolbar toolbar;
 
   @NonNull
   public final TextView tvActiveMedicines;
@@ -48,15 +52,16 @@ public final class ActivityDashboardBinding implements ViewBinding {
   @NonNull
   public final TextView tvTodaysMedicines;
 
-  private ActivityDashboardBinding(@NonNull CoordinatorLayout rootView,
+  private ActivityDashboardBinding(@NonNull LinearLayout rootView,
       @NonNull FloatingActionButton fabAddMedicine, @NonNull RecyclerView recyclerMedicines,
-      @NonNull TextView tvActiveMedicines, @NonNull TextView tvAdherenceRate,
-      @NonNull TextView tvGreeting, @NonNull TextView tvNextReminder,
-      @NonNull TextView tvNoMedicines, @NonNull TextView tvRemindersToday,
-      @NonNull TextView tvTodaysMedicines) {
+      @NonNull Toolbar toolbar, @NonNull TextView tvActiveMedicines,
+      @NonNull TextView tvAdherenceRate, @NonNull TextView tvGreeting,
+      @NonNull TextView tvNextReminder, @NonNull TextView tvNoMedicines,
+      @NonNull TextView tvRemindersToday, @NonNull TextView tvTodaysMedicines) {
     this.rootView = rootView;
     this.fabAddMedicine = fabAddMedicine;
     this.recyclerMedicines = recyclerMedicines;
+    this.toolbar = toolbar;
     this.tvActiveMedicines = tvActiveMedicines;
     this.tvAdherenceRate = tvAdherenceRate;
     this.tvGreeting = tvGreeting;
@@ -68,7 +73,7 @@ public final class ActivityDashboardBinding implements ViewBinding {
 
   @Override
   @NonNull
-  public CoordinatorLayout getRoot() {
+  public LinearLayout getRoot() {
     return rootView;
   }
 
@@ -102,6 +107,12 @@ public final class ActivityDashboardBinding implements ViewBinding {
       id = R.id.recycler_medicines;
       RecyclerView recyclerMedicines = ViewBindings.findChildViewById(rootView, id);
       if (recyclerMedicines == null) {
+        break missingId;
+      }
+
+      id = R.id.toolbar;
+      Toolbar toolbar = ViewBindings.findChildViewById(rootView, id);
+      if (toolbar == null) {
         break missingId;
       }
 
@@ -147,9 +158,9 @@ public final class ActivityDashboardBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityDashboardBinding((CoordinatorLayout) rootView, fabAddMedicine,
-          recyclerMedicines, tvActiveMedicines, tvAdherenceRate, tvGreeting, tvNextReminder,
-          tvNoMedicines, tvRemindersToday, tvTodaysMedicines);
+      return new ActivityDashboardBinding((LinearLayout) rootView, fabAddMedicine,
+          recyclerMedicines, toolbar, tvActiveMedicines, tvAdherenceRate, tvGreeting,
+          tvNextReminder, tvNoMedicines, tvRemindersToday, tvTodaysMedicines);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

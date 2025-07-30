@@ -27,6 +27,9 @@ public final class ItemMedicineBinding implements ViewBinding {
   public final Button btnInfo;
 
   @NonNull
+  public final Button btnLearnMore;
+
+  @NonNull
   public final CardView cardMedicine;
 
   @NonNull
@@ -54,13 +57,14 @@ public final class ItemMedicineBinding implements ViewBinding {
   public final TextView tvTimes;
 
   private ItemMedicineBinding(@NonNull CardView rootView, @NonNull Button btnDelete,
-      @NonNull Button btnInfo, @NonNull CardView cardMedicine, @NonNull TextView tvDosage,
-      @NonNull TextView tvEndDate, @NonNull TextView tvFrequency, @NonNull TextView tvMedicineName,
-      @NonNull TextView tvMedicineType, @NonNull TextView tvNotes, @NonNull TextView tvStartDate,
-      @NonNull TextView tvTimes) {
+      @NonNull Button btnInfo, @NonNull Button btnLearnMore, @NonNull CardView cardMedicine,
+      @NonNull TextView tvDosage, @NonNull TextView tvEndDate, @NonNull TextView tvFrequency,
+      @NonNull TextView tvMedicineName, @NonNull TextView tvMedicineType, @NonNull TextView tvNotes,
+      @NonNull TextView tvStartDate, @NonNull TextView tvTimes) {
     this.rootView = rootView;
     this.btnDelete = btnDelete;
     this.btnInfo = btnInfo;
+    this.btnLearnMore = btnLearnMore;
     this.cardMedicine = cardMedicine;
     this.tvDosage = tvDosage;
     this.tvEndDate = tvEndDate;
@@ -108,6 +112,12 @@ public final class ItemMedicineBinding implements ViewBinding {
       id = R.id.btn_info;
       Button btnInfo = ViewBindings.findChildViewById(rootView, id);
       if (btnInfo == null) {
+        break missingId;
+      }
+
+      id = R.id.btn_learn_more;
+      Button btnLearnMore = ViewBindings.findChildViewById(rootView, id);
+      if (btnLearnMore == null) {
         break missingId;
       }
 
@@ -161,9 +171,9 @@ public final class ItemMedicineBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ItemMedicineBinding((CardView) rootView, btnDelete, btnInfo, cardMedicine,
-          tvDosage, tvEndDate, tvFrequency, tvMedicineName, tvMedicineType, tvNotes, tvStartDate,
-          tvTimes);
+      return new ItemMedicineBinding((CardView) rootView, btnDelete, btnInfo, btnLearnMore,
+          cardMedicine, tvDosage, tvEndDate, tvFrequency, tvMedicineName, tvMedicineType, tvNotes,
+          tvStartDate, tvTimes);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

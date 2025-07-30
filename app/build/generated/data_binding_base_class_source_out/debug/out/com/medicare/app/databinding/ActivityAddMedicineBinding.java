@@ -6,11 +6,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ScrollView;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
@@ -21,7 +22,7 @@ import java.lang.String;
 
 public final class ActivityAddMedicineBinding implements ViewBinding {
   @NonNull
-  private final ScrollView rootView;
+  private final LinearLayout rootView;
 
   @NonNull
   public final Button btnAddTime;
@@ -60,6 +61,9 @@ public final class ActivityAddMedicineBinding implements ViewBinding {
   public final Spinner spinnerMedicineType;
 
   @NonNull
+  public final Toolbar toolbar;
+
+  @NonNull
   public final TextView tvEndDate;
 
   @NonNull
@@ -68,12 +72,12 @@ public final class ActivityAddMedicineBinding implements ViewBinding {
   @NonNull
   public final TextView tvTimeCount;
 
-  private ActivityAddMedicineBinding(@NonNull ScrollView rootView, @NonNull Button btnAddTime,
+  private ActivityAddMedicineBinding(@NonNull LinearLayout rootView, @NonNull Button btnAddTime,
       @NonNull Button btnCancel, @NonNull Button btnEndDate, @NonNull Button btnSave,
       @NonNull Button btnStartDate, @NonNull EditText etCustomTime, @NonNull EditText etDosage,
       @NonNull EditText etMedicineName, @NonNull EditText etNotes,
       @NonNull RecyclerView recyclerTimes, @NonNull Spinner spinnerFrequency,
-      @NonNull Spinner spinnerMedicineType, @NonNull TextView tvEndDate,
+      @NonNull Spinner spinnerMedicineType, @NonNull Toolbar toolbar, @NonNull TextView tvEndDate,
       @NonNull TextView tvStartDate, @NonNull TextView tvTimeCount) {
     this.rootView = rootView;
     this.btnAddTime = btnAddTime;
@@ -88,6 +92,7 @@ public final class ActivityAddMedicineBinding implements ViewBinding {
     this.recyclerTimes = recyclerTimes;
     this.spinnerFrequency = spinnerFrequency;
     this.spinnerMedicineType = spinnerMedicineType;
+    this.toolbar = toolbar;
     this.tvEndDate = tvEndDate;
     this.tvStartDate = tvStartDate;
     this.tvTimeCount = tvTimeCount;
@@ -95,7 +100,7 @@ public final class ActivityAddMedicineBinding implements ViewBinding {
 
   @Override
   @NonNull
-  public ScrollView getRoot() {
+  public LinearLayout getRoot() {
     return rootView;
   }
 
@@ -192,6 +197,12 @@ public final class ActivityAddMedicineBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.toolbar;
+      Toolbar toolbar = ViewBindings.findChildViewById(rootView, id);
+      if (toolbar == null) {
+        break missingId;
+      }
+
       id = R.id.tv_end_date;
       TextView tvEndDate = ViewBindings.findChildViewById(rootView, id);
       if (tvEndDate == null) {
@@ -210,9 +221,9 @@ public final class ActivityAddMedicineBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityAddMedicineBinding((ScrollView) rootView, btnAddTime, btnCancel,
+      return new ActivityAddMedicineBinding((LinearLayout) rootView, btnAddTime, btnCancel,
           btnEndDate, btnSave, btnStartDate, etCustomTime, etDosage, etMedicineName, etNotes,
-          recyclerTimes, spinnerFrequency, spinnerMedicineType, tvEndDate, tvStartDate,
+          recyclerTimes, spinnerFrequency, spinnerMedicineType, toolbar, tvEndDate, tvStartDate,
           tvTimeCount);
     }
     String missingId = rootView.getResources().getResourceName(id);
